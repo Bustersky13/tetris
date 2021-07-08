@@ -50,14 +50,6 @@ FILE_6=engine.agc;-1
 FILE_7=..%2Ftetris%2Fmenu.agc;-1
 
 [files]
-FILE_NAME_0=0;main.agc;384;2
-FILE_NAME_1=0;setup.agc;1761;3
-FILE_NAME_2=0;grid.agc;2278;0
-FILE_NAME_3=0;blocks.agc;85;5
-FILE_NAME_4=0;control.agc;154;4
-FILE_NAME_5=0;math.agc;0;6
-FILE_NAME_6=0;engine.agc;99;1
-FILE_NAME_7=1;..%2Ftetris%2Fmenu.agc;0;7
 
 [project]
 description=
