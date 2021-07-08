@@ -56,7 +56,7 @@ function setup()
 	SetTextColor(score_display,120,120,130,255)
 	
 	game_over_text = CreateText("GAME OVER")
-	SetTextSize(game_over_text,93)
+	SetTextSize(game_over_text,80)
 	SetTextFont(game_over_text, fonts )
 	SetTextPosition(game_over_text,50,150)
 	SetTextColor(game_over_text,255,255,0,255)
