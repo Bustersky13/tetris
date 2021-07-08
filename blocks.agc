@@ -1,3 +1,7 @@
+global blocks as integer[8,4]
+global block_stack as integer[7]
+global stack_index = 0
+
 function setup_blocks()
 	//T
 	blocks[1,0] = 114
@@ -26,7 +30,7 @@ function setup_blocks()
 	blocks[5,1] = 561
 	
 	//[]
-	blocks[6,0] = 51
+	blocks[6,0] = 1632 //51
 	
 	//|
 	blocks[7,0] = 8738
