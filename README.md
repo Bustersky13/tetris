@@ -18,7 +18,7 @@ R: Musica acelerar conforme a quantidade de linhas diminua.
    
 ```
 ### Enredo ###
-```
+```diff
 Q: Qual a história do seu jogo?
 R: Em meio a uma sociedade desigual tanto pela forma quanto pelas cores sempre tentando uns cair por cima dos outros surge você o tetris master capaz de colocar cada um em seu lugar, a unica forma de garantir o equilibrio da sociedade é você encaixando cada um em seu devido lugar! (ou de forma menos dramatica não possui exatamente uma historia)
 
@@ -27,7 +27,7 @@ R: tentar causar a igualdade entre todos e cabar com a bagunça casada por esse c
 ```
 ### Dinâmica do Gameplay ###
 
-```
+```diff
 Q: Seu jogo utiliza quais teclas?
 R: AD - Movimenta a peça para a direita ou esquerda.
     S - Faz a peça cair mais rapido.
