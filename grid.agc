@@ -24,7 +24,7 @@ function ZeroGrid()
 	next
 endfunction
 
-function ClearCrid()
+function ClearGrid()
 	for x = 0 to gw - 1
 		for y = 0 to gh - 1
 			grid[x,y] = 0

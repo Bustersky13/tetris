@@ -29,7 +29,6 @@ do
 			endif
 		endif
 	else
-		//DrawGrid()
 		check_click()
 	endif
 	sync()
