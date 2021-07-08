@@ -76,7 +76,7 @@ function reset()
 	score = 0
 	SetTextString(score_display,"0")
 	SetTextVisible(game_over_text,0)
-	ClearCrid()
+	ClearGrid()
 	music_sync()
 	speed_time = -music_offset
 	id = 1
