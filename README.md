@@ -33,7 +33,7 @@ R: AD - Movimenta a peça para a direita ou esquerda.
     S - Faz a peça cair mais rapido.
     W - Faz a peça cair instantaniamente (tipo o 4g da claro só que mais lento).
    QE - Roda as peças para a direita ou esquerda.
-
+ENTER - Reinicia o jogo apos morrer
 
 Q: A tela se move? Em qual direção?
 R: Não
