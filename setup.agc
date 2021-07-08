@@ -68,7 +68,7 @@ endfunction
 
 function music_sync()
 	StopMusic()
-	PlayMusic(music)
+	PlayMusic(music,1)
 	music_offset = Timer()
 endfunction
 
