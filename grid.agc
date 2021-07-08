@@ -37,9 +37,10 @@ function DrawGrid()
 		for y = 0 to gh - 1
 			index = y*gw+x+1
 			SetSpriteImage(index,GetColor(grid[x,y]))
-			SetSpriteColorAlpha(index,100)
 			if grid[x,y]
 				SetSpriteColorAlpha(index,255)
+			else
+				SetSpriteColorAlpha(index,100)
 			endif
 		next
 	next
@@ -47,16 +48,27 @@ endfunction
 	
 function DrawBlock(infs as integer[],preview)
 	blk = blocks[id,infos[2]]
+	color = GetColor(id)
 	for y = 0 to 3
 		for x = 0 to 3
 			if BitIndex(blk,y*4+x) = 1
 				index = (y+infs[1])*gw+x+infs[0]+1
-				SetSpriteImage(index,GetColor(id))
+				SetSpriteImage(index,color)
 				if preview
 					SetSpriteColorAlpha(index,150)
 				else
 					SetSpriteColorAlpha(index,255)
 				endif
+			endif
+		next
+	next
+endfunction
+
+function PlaceRawBlock(color_id,block,px,py)
+	for y = 0 to 3
+		for x = 0 to 3
+			if BitIndex(block,y*4+x) = 1
+				grid[x+px,y+py] = color_id
 			endif
 		next
 	next
@@ -125,7 +137,6 @@ endfunction
 	
 function PlaceBlock(instant)
 	curr as string = ""
-	by = 0
 	blk = blocks[id,infos[2]]
 	if instant
 		change as integer = 0
@@ -140,7 +151,7 @@ function PlaceBlock(instant)
 	for y = 0 to 3
 		for x = 0 to 3
 			if BitIndex(blk,y*4+x) = 1
-				grid[x+infos[0],y+infos[1]+by] = id
+				grid[x+infos[0],y+infos[1]] = id
 			endif
 		next
 	next

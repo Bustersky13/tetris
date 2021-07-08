@@ -4,6 +4,10 @@ W   S   A   D   E   Q   R   T
 
 */
 
+global id as integer = 0
+global infos as integer[3]
+global state as integer = 0
+
 function rotate()
 	temp as integer[3]
 	temp = infos
@@ -46,9 +50,9 @@ function move()
 		PlaceBlock(1)
 		infos[2] = 0
 		infos[1] = 0
-		infos[0] = 5
+		infos[0] = 3
 		next_block()
-		md = Timer()
+		md = GetMilliseconds()
 	else
 		state = 1-GetRawKeyState(87)
 	endif
@@ -62,9 +66,9 @@ function movedown()
 		PlaceBlock(0)
 		infos[2] = 0
 		infos[1] = 0
-		infos[0] = 5
+		infos[0] = 3
 		next_block()
-		md = Timer()
+		md = GetMilliseconds()
 	endif
 endfunction
 
@@ -114,3 +118,38 @@ function CheckColision(infos as integer[])
 		move = 0
 	endif
 endfunction move
+
+function display_stack()
+	for x = 0 to block_stack.length - 1
+		print(block_stack[x])
+	next
+endfunction
+
+function populate_stack()
+	flags = 0
+	str as string = ""
+	back as string = ""
+	front as string = ""
+	for x = 1 to block_stack.length
+		indx = Random(0,len(str)-1)
+		back = mid(str,1,indx)
+		front = mid(str,indx+1,len(str) - indx)
+		str = back + str(x) + front
+	next
+	for x = 0 to block_stack.length - 1
+		block_stack[x] = val(mid(str,x+1,1))
+	next
+endfunction
+
+function next_block()
+	if block_stack[stack_index + 1] = 0
+		populate_stack()
+		stack_index = 0
+	else
+		stack_index = stack_index + 1
+	endif
+	id = block_stack[stack_index]
+	if not GameOverCheck()
+		game_over = 1
+	endif
+endfunction
