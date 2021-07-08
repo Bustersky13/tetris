@@ -15,19 +15,14 @@ global dance_sprite as integer = 0
 global dance_animation as integer = 0
 global saber_dance_sprite as integer = 0
 global saber_dance_animation as integer = 0
-global id as integer = 0
-global infos as integer[3]
-global blocks as integer[8,4]
-global block_stack as integer[7]
-global stack_index = 0
-global tick as integer = 0
-global state as integer = 0
-global game_over as integer = 0
-global music_offset as float = 0
-global speed_time as float = 0
 global tetris_font as integer = 0
 global game_over_text as integer = 0
 global music as integer = 0
+global music_offset as float = 0
+global game_over as integer = 0
+global speed_time as float = 0
+global fonts as integer = 0
+
 function setup()
 	
 	SetErrorMode(2)
@@ -48,7 +43,7 @@ function setup()
 	music_sync()
 	
 	id = 1
-	infos[0] = 5
+	infos[0] = 3
 	infos[1] = 0
 	infos[2] = 0
 	
@@ -85,7 +80,7 @@ function reset()
 	music_sync()
 	speed_time = -music_offset
 	id = 1
-	infos[0] = 5
+	infos[0] = 3
 	infos[1] = 0
 	infos[2] = 0
 	stack_index = block_stack.length-1
@@ -95,47 +90,9 @@ function reset()
 	SetSpriteVisible(saber_dance_animation,0)
 endfunction
 
-function next_block()
-	if block_stack[stack_index + 1] = 0
-		populate_stack()
-		stack_index = 0
-	else
-		stack_index = stack_index + 1
-	endif
-	id = block_stack[stack_index]
-	if not GameOverCheck()
-		game_over = 1
-	endif
-	if blocks[id,1] <> 0
-		infos[2] = 1
-	endif 
-endfunction
-
 function GameOverCheck()
 	result = CheckColision(infos)
 endfunction result
-
-function display_stack()
-	for x = 0 to block_stack.length - 1
-		print(block_stack[x])
-	next
-endfunction
-
-function populate_stack()
-	flags = 0
-	str as string = ""
-	back as string = ""
-	front as string = ""
-	for x = 1 to block_stack.length
-		indx = Random(0,len(str)-1)
-		back = mid(str,1,indx)
-		front = mid(str,indx+1,len(str) - indx)
-		str = back + str(x) + front
-	next
-	for x = 0 to block_stack.length - 1
-		block_stack[x] = val(mid(str,x+1,1))
-	next
-endfunction
 	
 function load_sprites()
 	none_sprite = LoadImage("blocks/none.png")
